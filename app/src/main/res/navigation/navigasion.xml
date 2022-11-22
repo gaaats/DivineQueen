@@ -17,10 +17,18 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_playFragment_to_innnnfffoooFragment"
+            app:destination="@id/innnnfffoooFragment" />
     </fragment>
     <fragment
         android:id="@+id/thatsAllFragment"
         android:name="com.snake.io.slither.w.gaaaaamy.ThatsAllFragment"
         android:label="fragment_thats_all"
         tools:layout="@layout/fragment_thats_all" />
+    <fragment
+        android:id="@+id/innnnfffoooFragment"
+        android:name="com.snake.io.slither.w.InnnnfffoooFragment"
+        android:label="fragment_innnnfffooo"
+        tools:layout="@layout/fragment_innnnfffooo" />
 </navigation>

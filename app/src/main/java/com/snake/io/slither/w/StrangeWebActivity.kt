@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.AppsFlyerLib
 import com.google.android.material.snackbar.Snackbar
 import com.onesignal.OneSignal
-import com.snake.io.slither.w.MaaaainClas.Companion.C1efgrth
-import com.snake.io.slither.w.MaaaainClas.Companion.D1efrgt
-import com.snake.io.slither.w.MaaaainClas.Companion.MAIN_IDdfrgth
+import com.orhanobut.hawk.Hawk
+import com.snake.io.slither.w.MaaaainClas.Companion.C1ftgtgttgfrgtKgf
+import com.snake.io.slither.w.MaaaainClas.Companion.DEEPLfrfrrf66
+import com.snake.io.slither.w.MaaaainClas.Companion.MAIN_IDdrfrrfdfrgt
+import com.snake.io.slither.w.MaaaainClas.Companion.linkfrfrrfFjrjgtj
 import com.snake.io.slither.w.databinding.ActivityStrangeWebBinding
 import org.json.JSONException
 import org.json.JSONObject
@@ -22,33 +24,31 @@ import java.io.File
 import java.io.IOException
 
 class StrangeWebActivity : AppCompatActivity() {
+    private val frfrgtgt = 1
+    var kiloolool: String? = null
+    var frrffrrf: ValueCallback<Array<Uri>>? = null
 
-
-
-    lateinit var fegrthyj: WebView
-    var fgrhj: ValueCallback<Array<Uri>>? = null
-    var fgrthyjujuj: String? = null
-
-    private val JJJJJJJJHGTFFTF = 1
-    lateinit var fggythyhybb: ActivityStrangeWebBinding
+    lateinit var gtgtgtgt: WebView
+    lateinit var ikikiikiki: ActivityStrangeWebBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fggythyhybb = ActivityStrangeWebBinding.inflate(layoutInflater)
-        setContentView(fggythyhybb.root)
-        fegrthyj = fggythyhybb.frgthyhyviewWeb
+        ikikiikiki = ActivityStrangeWebBinding.inflate(layoutInflater)
+        setContentView(ikikiikiki.root)
+
+        gtgtgtgt = ikikiikiki.frgthyhyviewWeb
         Snackbar.make(
-            fggythyhybb.root, "Loading...",
+            ikikiikiki.root, "Loading...",
             Snackbar.LENGTH_LONG
         ).show()
 
-        val cookieManagerfergtyh = CookieManager.getInstance()
-        cookieManagerfergtyh.setAcceptCookie(true)
-        cookieManagerfergtyh.setAcceptThirdPartyCookies(fegrthyj, true)
-        webSettingsSSSdefr()
-        val activityfegrgtt: Activity = this
 
-        fegrthyj.webViewClient = object : WebViewClient() {
+        val jujujuujujuj5 = CookieManager.getInstance()
+        jujujuujujuj5.setAcceptCookie(true)
+        jujujuujujuj5.setAcceptThirdPartyCookies(gtgtgtgt, true)
+        jikikiki5()
+        val tgtgtgtg5: Activity = this
+        gtgtgtgt.webViewClient = object : WebViewClient() {
 
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -56,7 +56,7 @@ class StrangeWebActivity : AppCompatActivity() {
                     if (URLUtil.isNetworkUrl(url)) {
                         return false
                     }
-                    if (appInstalledOrNot(url)) {
+                    if (hyohjyhoy(url)) {
 
                         val intent = Intent(Intent.ACTION_VIEW)
                         intent.data = Uri.parse(url)
@@ -85,7 +85,7 @@ class StrangeWebActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
-                saveUrl(url)
+                hhojyjjhyjyjihy(url)
             }
 
             override fun onReceivedError(
@@ -94,89 +94,85 @@ class StrangeWebActivity : AppCompatActivity() {
                 description: String,
                 failingUrl: String
             ) {
-                Toast.makeText(activityfegrgtt, description, Toast.LENGTH_SHORT).show()
+                Toast.makeText(tgtgtgtg5, description, Toast.LENGTH_SHORT).show()
             }
 
 
         }
-        fegrthyj.webChromeClient = object : WebChromeClient() {
+        gtgtgtgt.webChromeClient = object : WebChromeClient() {
             override fun onShowFileChooser(
                 webView: WebView, filePathCallback: ValueCallback<Array<Uri>>,
                 fileChooserParams: FileChooserParams
             ): Boolean {
-                fgrhj?.onReceiveValue(null)
-                fgrhj = filePathCallback
-                var takePictureIntentfrgtgyhy: Intent? = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                if (takePictureIntentfrgtgyhy!!.resolveActivity(packageManager) != null) {
+                frrffrrf?.onReceiveValue(null)
+                frrffrrf = filePathCallback
+                var frgttakePictureIntent: Intent? = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                if (frgttakePictureIntent!!.resolveActivity(packageManager) != null) {
 
-
-                    var frthyhujujkiphotoFile: File? = null
+                    var photoFiledefrfr: File? = null
                     try {
-                        frthyhujujkiphotoFile = createImageFileftgyhy()
-                        takePictureIntentfrgtgyhy.putExtra("PhotoPath", fgrthyjujuj)
+                        photoFiledefrfr = frgfgtgtg()
+                        frgttakePictureIntent.putExtra("PhotoPath", kiloolool)
                     } catch (ex: IOException) {
-
                     }
 
-
-                    if (frthyhujujkiphotoFile != null) {
-                        fgrthyjujuj = "file:" + frthyhujujkiphotoFile.absolutePath
-                        takePictureIntentfrgtgyhy.putExtra(
+                    if (photoFiledefrfr != null) {
+                        kiloolool = "file:" + photoFiledefrfr.absolutePath
+                        frgttakePictureIntent.putExtra(
                             MediaStore.EXTRA_OUTPUT,
-                            Uri.fromFile(frthyhujujkiphotoFile)
+                            Uri.fromFile(photoFiledefrfr)
                         )
                     } else {
-                        takePictureIntentfrgtgyhy = null
+                        frgttakePictureIntent = null
                     }
                 }
-                val gtyhyyhyhuju = Intent(Intent.ACTION_GET_CONTENT)
-                gtyhyyhyhuju.addCategory(Intent.CATEGORY_OPENABLE)
-                gtyhyyhyhuju.type = "image/*"
-                val tghjkikol: Array<Intent?> =
-                    takePictureIntentfrgtgyhy?.let { arrayOf(it) } ?: arrayOfNulls(0)
-                val chooserIntenttgyhyhy = Intent(Intent.ACTION_CHOOSER)
-                chooserIntenttgyhyhy.putExtra(Intent.EXTRA_INTENT, gtyhyyhyhuju)
-                chooserIntenttgyhyhy.putExtra(Intent.EXTRA_TITLE, getString(R.string.image_pic_choose))
-                chooserIntenttgyhyhy.putExtra(Intent.EXTRA_INITIAL_INTENTS, tghjkikol)
+                val ccvcvcvcv = Intent(Intent.ACTION_GET_CONTENT)
+                ccvcvcvcv.addCategory(Intent.CATEGORY_OPENABLE)
+                ccvcvcvcv.type = "image/*"
+                val gtgthyhyyh: Array<Intent?> =
+                    frgttakePictureIntent?.let { arrayOf(it) } ?: arrayOfNulls(0)
+                val tftgtgtgt = Intent(Intent.ACTION_CHOOSER)
+                tftgtgtgt.putExtra(Intent.EXTRA_INTENT, ccvcvcvcv)
+                tftgtgtgt.putExtra(Intent.EXTRA_TITLE, getString(R.string.image_pic_choose))
+                tftgtgtgt.putExtra(Intent.EXTRA_INITIAL_INTENTS, gtgthyhyyh)
                 startActivityForResult(
-                    chooserIntenttgyhyhy, JJJJJJJJHGTFFTF
+                    tftgtgtgt, frfrgtgt
                 )
                 return true
             }
 
             @Throws(IOException::class)
-            private fun createImageFileftgyhy(): File {
-                var imageStorageDirfrrf = File(
+            private fun frgfgtgtg(): File {
+                var gtghyokykhky = File(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
                     "DirectoryNameHere"
                 )
-                if (!imageStorageDirfrrf.exists()) {
-                    imageStorageDirfrrf.mkdirs()
+                if (!gtghyokykhky.exists()) {
+                    gtghyokykhky.mkdirs()
                 }
 
-                imageStorageDirfrrf =
-                    File(imageStorageDirfrrf.toString() + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg")
-                return imageStorageDirfrrf
+                gtghyokykhky =
+                    File(gtghyokykhky.toString() + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg")
+                return gtghyokykhky
             }
 
         }
 
-        fegrthyj.loadUrl(dfrgfthyhugetUrl())
+        gtgtgtgt.loadUrl(kokokok())
     }
 
 
-    private fun deftgFrfpushToOneSignal(string: String) {
-
+    private fun frfrfrffrijyijhy(string: String) {
         OneSignal.setExternalUserId(
             string,
             object : OneSignal.OSExternalUserIdUpdateCompletionHandler {
                 override fun onSuccess(results: JSONObject) {
                     try {
                         if (results.has("push") && results.getJSONObject("push").has("success")) {
-                            val isPushSuccessftgtgyh = results.getJSONObject("push").getBoolean("success")
+                            val frrrfrfrfr = results.getJSONObject("push").getBoolean("success")
                             OneSignal.onesignalLog(
                                 OneSignal.LOG_LEVEL.VERBOSE,
-                                "Set external user id for push status: $isPushSuccessftgtgyh"
+                                "Set external user id for push status: $frrrfrfrfr"
                             )
                         }
                     } catch (e: JSONException) {
@@ -184,11 +180,11 @@ class StrangeWebActivity : AppCompatActivity() {
                     }
                     try {
                         if (results.has("email") && results.getJSONObject("email").has("success")) {
-                            val dfrgtDeisEmailSuccess =
+                            val frrfrfrrfdd =
                                 results.getJSONObject("email").getBoolean("success")
                             OneSignal.onesignalLog(
                                 OneSignal.LOG_LEVEL.VERBOSE,
-                                "Set external user id for email status: $dfrgtDeisEmailSuccess"
+                                "Set external user id for email status: $frrfrfrrfdd"
                             )
                         }
                     } catch (e: JSONException) {
@@ -196,10 +192,10 @@ class StrangeWebActivity : AppCompatActivity() {
                     }
                     try {
                         if (results.has("sms") && results.getJSONObject("sms").has("success")) {
-                            val isSmsSuccessdefE = results.getJSONObject("sms").getBoolean("success")
+                            val frfrfr = results.getJSONObject("sms").getBoolean("success")
                             OneSignal.onesignalLog(
                                 OneSignal.LOG_LEVEL.VERBOSE,
-                                "Set external user id for sms status: $isSmsSuccessdefE"
+                                "Set external user id for sms status: $frfrfr"
                             )
                         }
                     } catch (e: JSONException) {
@@ -216,37 +212,104 @@ class StrangeWebActivity : AppCompatActivity() {
             })
     }
 
-    private fun webSettingsSSSdefr() {
-        val webSettingssderftrgthy = fegrthyj.settings
-        webSettingssderftrgthy.javaScriptEnabled = true
+    private fun jikikiki5() {
+        val frfgthy6 = gtgtgtgt.settings
+        frfgthy6.javaScriptEnabled = true
 
-        webSettingssderftrgthy.useWideViewPort = true
+        frfgthy6.useWideViewPort = true
 
-        webSettingssderftrgthy.loadWithOverviewMode = true
-        webSettingssderftrgthy.allowFileAccess = true
-        webSettingssderftrgthy.domStorageEnabled = true
-        webSettingssderftrgthy.userAgentString = webSettingssderftrgthy.userAgentString.replace("; wv", "")
+        frfgthy6.loadWithOverviewMode = true
+        frfgthy6.allowFileAccess = true
+        frfgthy6.domStorageEnabled = true
+        frfgthy6.userAgentString = frfgthy6.userAgentString.replace("; wv", "")
 
-        webSettingssderftrgthy.javaScriptCanOpenWindowsAutomatically = true
-        webSettingssderftrgthy.setSupportMultipleWindows(false)
+        frfgthy6.javaScriptCanOpenWindowsAutomatically = true
+        frfgthy6.setSupportMultipleWindows(false)
 
-        webSettingssderftrgthy.displayZoomControls = false
-        webSettingssderftrgthy.builtInZoomControls = true
-        webSettingssderftrgthy.setSupportZoom(true)
+        frfgthy6.displayZoomControls = false
+        frfgthy6.builtInZoomControls = true
+        frfgthy6.setSupportZoom(true)
 
-        webSettingssderftrgthy.pluginState = WebSettings.PluginState.ON
-        webSettingssderftrgthy.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-        webSettingssderftrgthy.setAppCacheEnabled(true)
+        frfgthy6.pluginState = WebSettings.PluginState.ON
+        frfgthy6.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+        frfgthy6.setAppCacheEnabled(true)
 
-        webSettingssderftrgthy.allowContentAccess = true
+        frfgthy6.allowContentAccess = true
     }
 
-    private fun appInstalledOrNot(uri: String): Boolean {
+    private fun kokokok(): String {
 
-        val pmaaaaaanager = packageManager
+        val thkykkhyko = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
+
+        val hgyjyj = "com.snake.io.slither.w"
+
+        val kli: String? = Hawk.get(C1ftgtgttgfrgtKgf, "null")
+        val hyhkykhkykyk: String? = Hawk.get(MAIN_IDdrfrrfdfrgt, "null")
+        val kokok: String? = Hawk.get(DEEPLfrfrrf66, "null")
+
+        val julpjpuuu = AppsFlyerLib.getInstance().getAppsFlyerUID(this)
+
+
+        AppsFlyerLib.getInstance().setCollectAndroidID(true)
+
+
+        val gt5tgt = "deviceID="
+        val gyhyhyLKfktt = "sub_id_4="
+        val OKkftgt = "sub_id_5="
+        val ykhokyh = "sub_id_6="
+        val hykohyk = "sub_id_1="
+        val hykhykoy5 = "ad_id="
+
+
+        val gtoyhjyyhy = "naming"
+        val gtgyhyhy5 = "deeporg"
+
+
+        val hyhoyykhky5 = Build.VERSION.RELEASE
+
+        val gytohyyy5 = Hawk.get(linkfrfrrfFjrjgtj, "null")
+
+        var gtthyhyyh5 = ""
+        if (kli != "null") {
+            gtthyhyyh5 =
+                "$gytohyyy5$hykohyk$kli&$gt5tgt$julpjpuuu&$hykhykoy5$hyhkykhkykyk&$gyhyhyLKfktt$hgyjyj&$OKkftgt$hyhoyykhky5&$ykhokyh$gtoyhjyyhy"
+            frfrfrffrijyijhy(julpjpuuu.toString())
+        } else {
+            gtthyhyyh5 =
+                "$gytohyyy5$hykohyk$kokok&$gt5tgt$julpjpuuu&$hykhykoy5$hyhkykhkykyk&$gyhyhyLKfktt$hgyjyj&$OKkftgt$hyhoyykhky5&$ykhokyh$gtgyhyhy5"
+            frfrfrffrijyijhy(julpjpuuu.toString())
+        }
+
+
+        return thkykkhyko.getString("SAVED_URL", gtthyhyyh5).toString()
+    }
+
+    override fun onBackPressed() {
+
+
+        if (gtgtgtgt.canGoBack()) {
+            if (ftgtgttgt5) {
+                gtgtgtgt.stopLoading()
+                gtgtgtgt.loadUrl(ghyhyyhy5)
+            }
+            this.ftgtgttgt5 = true
+            gtgtgtgt.goBack()
+            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                ftgtgttgt5 = false
+            }, 2000)
+
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+
+    private fun hyohjyhoy(uri: String): Boolean {
+
+        val tgtgttgttg = packageManager
         try {
 
-            pmaaaaaanager.getPackageInfo("org.telegram.messenger", PackageManager.GET_ACTIVITIES)
+            tgtgttgttg.getPackageInfo("org.telegram.messenger", PackageManager.GET_ACTIVITIES)
 
 
             return true
@@ -256,117 +319,52 @@ class StrangeWebActivity : AppCompatActivity() {
         return false
     }
 
-    private fun dfrgfthyhugetUrl(): String {
-
-        val faaaaaaaaaakspoon = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
-
-        val jjjjjjjjjsharPref = getSharedPreferences("SP", MODE_PRIVATE)
-
-        val cpOnefrgtg: String? = jjjjjjjjjsharPref.getString(C1efgrth, "null")
-        val frgttdpOne: String? = jjjjjjjjjsharPref.getString(D1efrgt, "null")
-        val gggggggggggthy: String? = jjjjjjjjjsharPref.getString(MAIN_IDdfrgth, null)
-
-        val packfrgthgyhy = "com.snake.io.slither.w"
-
-        val dddddddddddddddddid = AppsFlyerLib.getInstance().getAppsFlyerUID(this)
-
-
-        AppsFlyerLib.getInstance().setCollectAndroidID(true)
-        val one__ = "sub_id_1="
-        val ____two = "deviceID="
-        val threefrgtyghy = "ad_id="
-        val fourgthy = "sub_id_4="
-        val fivefgrth = "sub_id_5="
-        val sixfrgtyh = "sub_id_6="
-
-
-        val firstfghyy = "http://"
-        val frgtyhsecond = "divinequeen.xyz/go.php?to=2&"
-
-        val nananana = "naming"
-        val llllnulll = "deeporg"
-
-        val androidVersionfrgtyh = Build.VERSION.RELEASE
-
-        val resultABfrftrgtgt = firstfghyy + frgtyhsecond
-
-        var frgythytttyyuuukuijiafter = ""
-        if (cpOnefrgtg != "null") {
-            frgythytttyyuuukuijiafter =
-                "$resultABfrftrgtgt$one__$cpOnefrgtg&$____two$dddddddddddddddddid&$threefrgtyghy$gggggggggggthy&$fourgthy$packfrgthgyhy&$fivefgrth$androidVersionfrgtyh&$sixfrgtyh$nananana"
-        } else {
-            frgythytttyyuuukuijiafter =
-                "$resultABfrftrgtgt$one__$frgttdpOne&$____two$dddddddddddddddddid&$threefrgtyghy$gggggggggggthy&$fourgthy$packfrgthgyhy&$fivefgrth$androidVersionfrgtyh&$sixfrgtyh$llllnulll"
-        }
-        deftgFrfpushToOneSignal(dddddddddddddddddid.toString())
-        return faaaaaaaaaakspoon.getString("SAVED_URL", frgythytttyyuuukuijiafter).toString()
-    }
-
-
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode != JJJJJJJJHGTFFTF || fgrhj == null) {
+        if (requestCode != frfrgtgt || frrffrrf == null) {
             super.onActivityResult(requestCode, resultCode, data)
             return
         }
-        var resultsDRFRKFOOR: Array<Uri>? = null
+        var results: Array<Uri>? = null
 
         if (resultCode == AppCompatActivity.RESULT_OK) {
             if (data == null || data.data == null) {
-                resultsDRFRKFOOR = arrayOf(Uri.parse(fgrthyjujuj))
+                results = arrayOf(Uri.parse(kiloolool))
             } else {
-                val dataStringfrFRFR = data.dataString
-                if (dataStringfrFRFR != null) {
-                    resultsDRFRKFOOR = arrayOf(Uri.parse(dataStringfrFRFR))
+                val ddtdtdtd = data.dataString
+                if (ddtdtdtd != null) {
+                    results = arrayOf(Uri.parse(ddtdtdtd))
                 }
             }
         }
-        fgrhj?.onReceiveValue(resultsDRFRKFOOR)
-        fgrhj = null
+        frrffrrf?.onReceiveValue(results)
+        frrffrrf = null
     }
 
-    fun saveUrl(url: String?) {
-        if (!url!!.contains("t.me")) {
 
-            if (firstUrldfrgtggtg4555 == "") {
-                firstUrldfrgtggtg4555 = getSharedPreferences(
+    private var ftgtgttgt5 = false
+
+
+    var ghyhyyhy5 = ""
+    fun hhojyjjhyjyjihy(lurlurlurlurlur: String?) {
+        if (!lurlurlurlurlur!!.contains("t.me")) {
+
+            if (ghyhyyhy5 == "") {
+                ghyhyyhy5 = getSharedPreferences(
                     "SP_WEBVIEW_PREFS",
                     AppCompatActivity.MODE_PRIVATE
                 ).getString(
                     "SAVED_URL",
-                    url
+                    lurlurlurlurlur
                 ).toString()
 
-                val spdfrgtt = getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
-                val DEDEFrftgt = spdfrgtt.edit()
-                DEDEFrftgt.putString("SAVED_URL", url)
-                DEDEFrftgt.apply()
+                val rfrrfrfr =
+                    getSharedPreferences("SP_WEBVIEW_PREFS", AppCompatActivity.MODE_PRIVATE)
+                val yhyhyhhyhy = rfrrfrfr.edit()
+                yhyhyhhyhy.putString("SAVED_URL", lurlurlurlurlur)
+                yhyhyhhyhy.apply()
             }
         }
     }
 
-
-    private var rfgtgyhydoubleBackToExitPressedOnce = false
-    override fun onBackPressed() {
-
-
-        if (fegrthyj.canGoBack()) {
-            if (rfgtgyhydoubleBackToExitPressedOnce) {
-                fegrthyj.stopLoading()
-                fegrthyj.loadUrl(firstUrldfrgtggtg4555)
-            }
-            this.rfgtgyhydoubleBackToExitPressedOnce = true
-            fegrthyj.goBack()
-            Handler(Looper.getMainLooper()).postDelayed(Runnable {
-                rfgtgyhydoubleBackToExitPressedOnce = false
-            }, 2000)
-
-        } else {
-            super.onBackPressed()
-        }
-    }
-
-    var firstUrldfrgtggtg4555 = ""
 
 }

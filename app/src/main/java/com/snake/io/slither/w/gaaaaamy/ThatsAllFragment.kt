@@ -10,28 +10,28 @@ import com.google.android.material.snackbar.Snackbar
 import com.snake.io.slither.w.databinding.FragmentThatsAllBinding
 
 class ThatsAllFragment : Fragment() {
-    private var frgtyy: FragmentThatsAllBinding? = null
-    private val fgybinding get() = frgtyy ?: throw RuntimeException("FragmentStartBinding = null")
+    private var gyhyhyjuuj5: FragmentThatsAllBinding? = null
+    private val gyhyhy3 get() = gyhyhyjuuj5 ?: throw RuntimeException("FragmentStartBinding = null")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        frgtyy = FragmentThatsAllBinding.inflate(inflater, container, false)
-        return fgybinding.root
+        gyhyhyjuuj5 = FragmentThatsAllBinding.inflate(inflater, container, false)
+        return gyhyhy3.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         try {
-            fgybinding.btnExitfgtghy.setOnClickListener {
-                initAlertDialogfgthyu()
+            gyhyhy3.btnExitfgtghy.setOnClickListener {
+                hyjujikki()
             }
-            fgybinding.btnTryAgainfrtghy.setOnClickListener {
+            gyhyhy3.btnTryAgainfrtghy.setOnClickListener {
                 requireActivity().onBackPressed()
             }
 
         } catch (e: Exception) {
-            frgthyhyhyErrrrror()
+            gtgtg()
         }
 
 
@@ -39,23 +39,23 @@ class ThatsAllFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        frgtyy = null
+        gyhyhyjuuj5 = null
         super.onDestroy()
     }
 
-    private fun frgthyhyhyErrrrror() {
+    private fun gtgtg() {
         Snackbar.make(
-            fgybinding.root,
+            gyhyhy3.root,
             "There is error, try again",
             Snackbar.LENGTH_LONG
         ).show()
         requireActivity().onBackPressed()
     }
 
-    private fun initAlertDialogfgthyu() {
+    private fun hyjujikki() {
         AlertDialog.Builder(requireContext())
             .setTitle("Exit")
-            .setMessage("Do you want to exit, the current data don`t saved?")
+            .setMessage("The current data don`t saved, EXIT?")
             .setPositiveButton("Yes, Exit") { _, _ ->
                 requireActivity().finish()
             }

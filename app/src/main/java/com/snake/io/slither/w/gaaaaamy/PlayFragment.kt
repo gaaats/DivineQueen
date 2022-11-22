@@ -12,228 +12,122 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.snake.io.slither.w.R
 import com.snake.io.slither.w.databinding.FragmentPlayBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 
 class PlayFragment : Fragment() {
-    var counterAlpha = 0.8f
-    var diffAlpha = 0.05f
+    var gtgt = 0.8f
+    var plfr = 0.05f
 
-    private var _biiiiiiinding: FragmentPlayBinding? = null
-    private val binding
-        get() = _biiiiiiinding ?: throw RuntimeException("FragmentStartBinding = null")
+    private var gtu: FragmentPlayBinding? = null
+    private val pola
+        get() = gtu ?: throw RuntimeException("FragmentStartBinding = null")
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _biiiiiiinding = FragmentPlayBinding.inflate(inflater, container, false)
-        return binding.root
+        gtu = FragmentPlayBinding.inflate(inflater, container, false)
+        return pola.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         try {
 
-            binding.btnImgLove.setOnClickListener {
-                Snackbar.make(binding.root, "I love you too ♥♥♥", Snackbar.LENGTH_LONG).show()
-            }
-            binding.btnImgExit.setOnClickListener {
-                initAlertDialogfgthyu()
+            pola.root.background.alpha = 190
 
+            pola.btnImgHelp.setOnClickListener {
+                findNavController().navigate(R.id.action_playFragment_to_innnnfffoooFragment)
             }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-                    binding.btnElem1.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-                    binding.btnElem2.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
+            pola.btnImgExit.setOnClickListener {
+                alalalet()
 
-                    binding.btnElem3.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-
-                    binding.btnElem4.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-
-                    binding.btnElem5.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-
-                    binding.btnElem6.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-
-                    binding.btnElem7.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
-            }
-            lifecycleScope.launch {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                while (true) {
-
-                    binding.btnElem8.alpha = insideCounter
-                    if (insideCounter >= 1f) {
-                        isideDiff = -0.05f
-                    }
-                    if (insideCounter <= 0.1f) {
-                        isideDiff = 0.05f
-                    }
-                    delay(30)
-                    insideCounter += isideDiff
-                }
             }
 
 
-            binding.btnElem1.setOnClickListener {
+
+            pola.btnElem1.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem2.setOnClickListener {
+            pola.btnElem2.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem3.setOnClickListener {
+            pola.btnElem3.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem4.setOnClickListener {
+            pola.btnElem4.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem5.setOnClickListener {
+            pola.btnElem5.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem6.setOnClickListener {
+            pola.btnElem6.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem7.setOnClickListener {
+            pola.btnElem7.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
             }
-            binding.btnElem8.setOnClickListener {
+            pola.btnElem8.setOnClickListener {
                 it.visibility = View.GONE
-                checkerMake()
+                polskks()
+            }
+            pola.btnElem9.setOnClickListener {
+                it.visibility = View.GONE
+                polskks()
+            }
+            pola.btnElem10.setOnClickListener {
+                it.visibility = View.GONE
+                polskks()
+            }
+            pola.btnElem11.setOnClickListener {
+                it.visibility = View.GONE
+                polskks()
+            }
+            pola.btnElem12.setOnClickListener {
+                it.visibility = View.GONE
+                polskks()
             }
 
 
         } catch (e: Exception) {
-            makeError()
+            afrhgthUygt()
         }
 
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun checkerMake() {
-        if (isVisibleImg(binding.btnElem1) && isVisibleImg(binding.btnElem2) && isVisibleImg(
-                binding.btnElem3
-            ) && isVisibleImg(binding.btnElem4) && isVisibleImg(binding.btnElem5) && isVisibleImg(
-                binding.btnElem6
-            ) && isVisibleImg(binding.btnElem7) && isVisibleImg(binding.btnElem8)
+    private fun polskks() {
+        if (isisKfjr(pola.btnElem1) && isisKfjr(pola.btnElem2) && isisKfjr(
+                pola.btnElem3
+            ) && isisKfjr(pola.btnElem4) && isisKfjr(pola.btnElem5) && isisKfjr(
+                pola.btnElem6
+            ) && isisKfjr(pola.btnElem7) && isisKfjr(pola.btnElem8) && isisKfjr(
+                pola.btnElem9
+            ) && isisKfjr(pola.btnElem10) && isisKfjr(pola.btnElem11) && isisKfjr(
+                pola.btnElem12
+            )
         ) {
             findNavController().navigate(R.id.action_playFragment_to_thatsAllFragment)
         }
     }
 
     override fun onDestroy() {
-        _biiiiiiinding = null
+        gtu = null
         super.onDestroy()
     }
 
-    private fun makeError() {
+    private fun afrhgthUygt() {
         Snackbar.make(
-            binding.root,
+            pola.root,
             "There is some error, try again",
             Snackbar.LENGTH_LONG
         ).show()
@@ -241,35 +135,35 @@ class PlayFragment : Fragment() {
     }
 
 
-    private fun makeCycleUpAndDovnAlpha(imageView: ImageView) {
+    private fun slonny(imageView: ImageView) {
         lifecycleScope.launch {
             while (true) {
-                var insideCounter = counterAlpha
-                var isideDiff = diffAlpha
-                imageView.alpha = insideCounter
-                if (insideCounter >= 1f) {
-                    isideDiff = -0.05f
+                var ismsms = gtgt
+                var gtjitji = plfr
+                imageView.alpha = ismsms
+                if (ismsms >= 1f) {
+                    gtjitji = -0.05f
                 }
-                if (insideCounter <= 0.1f) {
-                    isideDiff = 0.05f
+                if (ismsms <= 0.1f) {
+                    gtjitji = 0.05f
                 }
                 delay(30)
-                insideCounter += isideDiff
+                ismsms += gtjitji
             }
         }
     }
 
-    private fun isVisibleImg(imageView: ImageView): Boolean {
+    private fun isisKfjr(imageView: ImageView): Boolean {
         if (imageView.visibility == View.GONE) {
             return true
         }
         return false
     }
 
-    private fun initAlertDialogfgthyu() {
+    private fun alalalet() {
         AlertDialog.Builder(requireContext())
             .setTitle("Exit")
-            .setMessage("Do you want to exit, the current data don`t saved?")
+            .setMessage("Exit, realy?")
             .setPositiveButton("Yes, Exit") { _, _ ->
                 requireActivity().finish()
             }
